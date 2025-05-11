@@ -1,0 +1,54 @@
+.admin-dashboard {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); /* adjust the opacity for effect */
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  padding: 2rem;
+  backdrop-filter: brightness(0.85); /* darken bg under text */
+}
+
+.content h1, .content p {
+  font-size: clamp(1.2rem, 2.5vw, 3rem);
+  margin: 0.5rem 0;
+}
+
+.glow-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #8f0f0f,
+    0 0 20px #050b31,
+    0 0 30px #010606;
+}

@@ -1,0 +1,191 @@
+/* Home.css */
+
+/* 🌌 Space + Aurora Background */
+.home-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ⭐ Star Field */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 300%;
+  height: 300%;
+  background: url('https://i.imgur.com/8CV5WAB.png') repeat;
+  animation: moveStars 150s linear infinite;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* 🌈 Aurora Lights */
+.home-container::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.2), transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(0,255,128,0.15), transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(0,128,255,0.1), transparent 50%);
+  animation: moveAurora 60s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* 🌠 Stars moving */
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+/* 🌌 Aurora lights movement */
+@keyframes moveAurora {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-10%, -10%) scale(1.2); }
+  100% { transform: translate(10%, 10%) scale(1); }
+}
+
+/* 🌟 3 Models */
+
+/* Model 1 - Floating Circle */
+.model-circle {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 150px;
+  height: 150px;
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: float1 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Model 2 - Pulsing Cube (illusion) */
+.model-cube {
+  position: absolute;
+  top: 70%;
+  left: 75%;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 128, 255, 0.4);
+  transform: rotate(45deg);
+  filter: blur(20px);
+  animation: pulse2 6s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Model 3 - Organic Blob */
+.model-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: rgba(0, 255, 128, 0.2);
+  border-radius: 45% 55% 55% 45% / 60% 40% 60% 40%;
+  filter: blur(40px);
+  animation: blob3 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Animations for models */
+@keyframes float1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(20px, -30px) scale(1.1); }
+}
+
+@keyframes pulse2 {
+  0% { transform: rotate(45deg) scale(1); }
+  100% { transform: rotate(45deg) scale(1.2); }
+}
+
+@keyframes blob3 {
+  0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) scale(1.1) rotate(10deg); }
+}
+
+/* Content always above background */
+.container, .row, .col {
+  z-index: 1;
+  position: relative;
+}
+
+/* Text and Button Styles (same as before) */
+h1, h3 {
+  color: #ffffff9b;
+  text-shadow:
+    0 0 5px #b3c400,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff,
+    0 0 60px #00ffff;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+/* Optional animation for pulsing glow */
+@keyframes glowText {
+  0% {
+    text-shadow:
+      0 0 5px #083f10,
+      0 0 10px #00ffff,
+      0 0 20px #100058,
+      0 0 40px #0c035d;
+  }
+  100% {
+    text-shadow:
+      0 0 10px #00ffff,
+      0 0 20px #97b6b6,
+      0 0 30px #034646,
+      0 0 60px #074a4a;
+  }
+}
+
+.home-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  width: 250px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  border-radius: 12px;
+  border: none;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+  background-color: rgba(0, 123, 255, 0.9) !important;
+  color: #fff !important;
+}
+
+button svg {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2.2rem;
+  }
+  .home-subtitle {
+    font-size: 1.2rem;
+  }
+}
