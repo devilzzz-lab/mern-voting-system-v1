@@ -45,7 +45,7 @@ const Register = () => {
         <div className="col-md-6">
           {!isFaceStage ? (
             <form onSubmit={handleSubmit} className="border p-4 shadow rounded">
-              <h3 className="mb-4 text-center">Register</h3>
+              <h2 className="mb-4 text-center">Register</h2>
               <div className="form-group mb-3">
                 <input
                   className="form-control"
